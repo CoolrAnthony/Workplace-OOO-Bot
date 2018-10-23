@@ -1,0 +1,145 @@
+<html>
+
+<head>
+  <title>Out of Office Settings</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/bootstrap-material-design.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/css/ripples.min.css" />
+
+  <link rel="stylesheet" href="./css/bootstrap-material-datetimepicker.css" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script>
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+
+
+    function closeWindow() {
+      MessengerExtensions.requestCloseBrowser(function success() {
+
+      }, function error(err) {});
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
+  <!-- <script type="text/javascript" src="https://rawgit.com/FezVrasta/bootstrap-material-design/master/dist/js/material.min.js"></script> -->
+  <script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.min.js"></script>
+  <script type="text/javascript" src="./js/bootstrap-material-datetimepicker.js"></script>
+
+  <style>
+    body 
+			{
+				padding-top: 5px;
+				font-family: 'Roboto', sans-serif;
+			}
+			h2 
+			{
+				padding: 0 20px 10px 20px;
+				font-size: 20px;
+				font-weight: 400;
+			}
+			.form-control-wrapper 
+			{
+				margin: 10px 20px;
+			}
+			code 
+			{
+				padding: 10px;
+				background: #eee!important;
+				display: block;
+				color: #000;
+			}
+			code > p 
+			{
+				font-weight: bold;
+				color: #000;
+				font-size: 1.5em;
+			}
+			@media(max-width: 300px)
+			{
+				.well { margin : 0}
+			}
+		</style>
+
+</head>
+
+<body>
+  <div class="container well">
+    <div class="row">
+      <form action="/updateOOO/" method="post" onsubmit="return closeWindow()">
+        <input type="hidden" name="Name" value="<%= Name%>">
+        <input type="hidden" name="FBUsername" value="<%= FBUsername%>">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="form-group">
+              <textarea class="form-control" name="message" id="message" rows="6" required placeholder="Your Message"><%= message%></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-control-wrapper">
+              <input type="text" id="date-start" name="date-start" class="form-control floating-label" required
+                placeholder="Start Date" value="<%= startTime%>">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-control-wrapper">
+              <input type="text" id="date-end" name="date-end" class="form-control floating-label" placeholder="End Date (Optional)"
+                value="<%= endTime%>">
+            </div>
+          </div>
+
+          <!-- <div class="row">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="summary-required" name="summary-required" <% if(summaryRequired){ %>
+                checked }); %>
+                <% } %><label>
+                  Send me a summary when I
+                  return (not yet implimented)
+                </label>
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#date-end').bootstrapMaterialDatePicker({
+          weekStart: 0,
+          format: 'DD-MM-YYYY - HH:mm',
+        });
+        $('#date-start').bootstrapMaterialDatePicker({
+          weekStart: 0,
+          format: 'DD-MM-YYYY - HH:mm',
+          shortTime: true
+        }).on('change', function (e, date) {
+          $('#date-end').bootstrapMaterialDatePicker('setMinDate', date);
+        });
+        $.material.init()
+      });
+    </script>
+</body>
+
+</html>

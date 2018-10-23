@@ -1,0 +1,37 @@
+{
+    "name": "Coolr-WP-OutOfOffice-Bot",
+    "version": "0.0.1",
+    "description": "Enables out of office funtionality for Workplace by Facebook",
+    "engines": {
+        "node": "8.9.1"
+    },
+    "main": "/server/index.js",
+    "scripts": {
+        "start": "node ./server/index.js",
+        "test": "node ./server/tests/test1.js",
+        "debug": "node --inspect-brk ./server/index.js"
+    },
+    "dependencies": {
+        "date-fns": "^1.29.0",
+        "dotenv": "^6.0.0",
+        "ejs": "^2.5.6",
+        "express": "^4.15.2",
+        "moment": "^2.22.2",
+        "node-schedule": "^1.3.0",
+        "pg": "^7.4.3",
+        "pg-hstore": "^2.3.2",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.2",
+        "sequelize": "^4.38.1",
+        "sequelize-cli": "^4.1.1"
+    },
+    "devDependencies": {},
+    "repository": {},
+    "keywords": [
+        "Facebook",
+        "Workplace",
+        "Out of Office",
+        "Coolr"
+    ],
+    "license": "MIT"
+}

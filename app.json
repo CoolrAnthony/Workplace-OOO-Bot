@@ -1,0 +1,6 @@
+{
+    "name": "Coolr-WP-OutOfOffice-Bot",
+    "description": "Enables out of office funtionality for Workplace by Facebook",
+    "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+    "keywords": ["Facebook", "Workplace", "Out of Office", "Coolr"]
+}
