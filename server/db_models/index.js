@@ -9,7 +9,11 @@ if (!global.hasOwnProperty('db')) {
             protocol: 'postgres',
             port: process.env.DATABASE_URL.match[4],
             host: process.env.DATABASE_URL.match[3],
-            logging: true //false
+            logging: true, //false
+
+            dialectOptions: {
+                ssl: true
+            }
         })
     } else {
         // the application is executed on the local machine 
