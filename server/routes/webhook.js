@@ -192,11 +192,11 @@ router
               let senderFirstName = returnValues[1].name.split(" ")[0];
               let domain
               if (process.env.NODE_ENV === 'DEVELOPMENT') {
-                domain = '17b1df46.ngrok.io'
+                domain = 'https://17b1df46.ngrok.io'
               } else {
-                domain = 'coolr-wp-outofoffice-bot.herokuapp.com'
+                domain = 'https://coolr-wp-outofoffice-bot.herokuapp.com'
               }
-              let url = 'https://' + domain + '/enableOOO?FBUsername=' + returnValues[1].id + '&Name=' + returnValues[1].name
+              let url = domain + '/enableOOO?FBUsername=' + returnValues[1].id + '&Name=' + returnValues[1].name
               let buttons = []
               if (returnValues[0].length == 0) {
                 //the user does not have an OOO configured so we send them the enable OOO button
