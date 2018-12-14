@@ -109,9 +109,9 @@ router
                     if (process.env.NODE_ENV === 'DEVELOPMENT') {
                       domain = '17b1df46.ngrok.io'
                     } else {
-                      domain = 'coolr-wp-outofoffice-bot.herokuapp.com'
+                      domain = 'https://coolr-wp-ooobot.herokuapp.com/'
                     }
-                    let url = 'https://' + domain + '/enableOOO?FBUsername=' + entry.messaging[0].sender.id + '&Name=' + user.name
+                    let url = domain + '/enableOOO?FBUsername=' + entry.messaging[0].sender.id + '&Name=' + user.name
                     let json = {
                       recipient: {
                         id: entry.messaging[0].sender.id
@@ -194,7 +194,7 @@ router
               if (process.env.NODE_ENV === 'DEVELOPMENT') {
                 domain = 'https://17b1df46.ngrok.io'
               } else {
-                domain = 'https://coolr-wp-outofoffice-bot.herokuapp.com'
+                domain = 'https://coolr-wp-ooobot.herokuapp.com/'
               }
               let url = domain + '/enableOOO?FBUsername=' + returnValues[1].id + '&Name=' + returnValues[1].name
               let buttons = []
