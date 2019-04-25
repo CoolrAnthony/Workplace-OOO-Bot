@@ -6,12 +6,20 @@ var graphapi = require("request-promise").defaults({
     }
 });
 exports.enable = function (req, res) {
-    let referer = req.get('Referer');
-    if ((referer && referer.indexOf('facebook.com') >= 0) || process.env.NODE_ENV == 'DEVELOPMENT') {
-        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://' + process.env.organisationWPDomain + '.facebook.com/');
+    let referer
+    if (req.get('Referer').indexOf('facebook.com') >= 0) {
+        referer = '.facebook.com'
+
+    }
+    if (req.get('Referer').indexOf('workplace.com') >= 0) {
+        referer = '.workplace.com'
+
+    }
+    if (referer || process.env.NODE_ENV == 'DEVELOPMENT') {
+        res.setHeader('X-Frame-Options', 'ALLOW-FROM https://' + process.env.organisationWPDomain + referer);
         res.set({
-            'Content-Security-Policy': 'frame-ancestors https://' + process.env.organisationWPDomain + '.facebook.com/',
-            'X-Frame-Options': 'ALLOW-FROM https://' + process.env.organisationWPDomain + '.facebook.com/'
+            'Content-Security-Policy': 'frame-ancestors https://' + process.env.organisationWPDomain + referer,
+            'X-Frame-Options': 'ALLOW-FROM https://' + process.env.organisationWPDomain + referer
         });
 
         db.OOOuser.findAll({

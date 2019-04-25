@@ -1,5 +1,5 @@
 require("dotenv").config();
-var schedule = require('node-schedule');
+const schedule = require('node-schedule');
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
