@@ -42,8 +42,8 @@ The call back URL will be your web host's URL plus /webhook . If you host on Her
 
 You will need to subscribe the integration to the following webhooks
 
-- Page - messaging_postbacks - List item
-- Groups - comments - posts
+- **Page** - messaging_postbacks - List item
+- **Groups** - comments - posts
 
 ## Disclaimer
 
