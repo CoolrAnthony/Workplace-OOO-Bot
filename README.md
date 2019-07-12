@@ -52,3 +52,5 @@ You will need to subscribe the integration to the following webhooks
 This bot is provided "as is" with no warranty or guarantee. I created it around three years ago when I was first learning about chatbots. Looking back at it, the code isn't amazing and there's a few things I'd do differently. That said, we've been using it at Coolr for about a year without any problems.
 
 It should be noted that since I created this bot the graph API has changed a lot of the integration system has a few extra security features which I haven't incorporated. Quite a few of the permissions and webhooks have also changed so the application might be more permissive than necessary.
+
+Please also be aware that this version of Sequelize has a [SQL injection vulnerability](https://www.npmjs.com/advisories/1018) affecting MariaDB and MySQL. I'd have to bump the package through two major releases to fix this, and I don't have time at the moment to test the impact this would have. We use PostGreSQL, so aren't impacted by this vulnerability, so I've left it "as is" for now, but will look to update it later. PRs to fix this are welcome.
