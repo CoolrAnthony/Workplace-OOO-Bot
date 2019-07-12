@@ -1,39 +1,7 @@
-# node-js-getting-started
+# Workplace Out of Office bot
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+A simple Out of Office bot for Workplace. Set your OOO by messaging the bot. OOO messages can be set for a fixed period of time or indefinately. If a user messages an OOO user, they will receive a reply with the OOO user's message. If an OOO user is tagged in a group post the bot will reply to the poster to let them know the user is away. The bot tracks who it has replied to so that it doesn't repeatedly contact the poster.
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+# None technical people - read this
 
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
-
-```sh
-$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+To enable this bot you will need a web and Postgres database host. You can achieve both of these with something like Heroku or Zeit

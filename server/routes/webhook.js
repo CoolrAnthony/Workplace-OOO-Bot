@@ -107,7 +107,7 @@ router
                     let senderFirstName = user.name.split(" ")[0];
                     let domain
                     if (process.env.NODE_ENV === 'DEVELOPMENT') {
-                      domain = '17b1df46.ngrok.io'
+                      domain = 'e2212e61.ngrok.io'
                     } else {
                       domain = 'https://coolr-wp-ooobot.herokuapp.com/'
                     }
