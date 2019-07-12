@@ -13,7 +13,7 @@ The bot runs on Node.js and uses [Sequelize](http://www.sequelizejs.com) as an O
 You will need to add the following environment variables
 
     DATABASE_URL
-    ORGANISATION_WP_DOMAIN=wearecoolr
+    ORGANISATION_WP_DOMAIN
     WP_ACCESS_TOKEN
     WP_APP_SECRET
     WP_VERIFY_TOKEN
@@ -52,3 +52,5 @@ This bot is provided "as is" with no warranty or guarantee. I created it around 
 It should be noted that since I created this bot the graph API has changed a lot of the integration system has a few extra security features which I haven't incorporated. Quite a few of the permissions and webhooks have also changed so the application might be more permissive than necessary.
 
 Please also be aware that this version of Sequelize has a [SQL injection vulnerability](https://www.npmjs.com/advisories/1018) affecting MariaDB and MySQL. I'd have to bump the package through two major releases to fix this, and I don't have time at the moment to test the impact this would have. We use PostGreSQL, so aren't impacted by this vulnerability, so I've left it "as is" for now, but will look to update it later. PRs to fix this are welcome.
+
+# [WeAreCoolr.com](https://www.wearecoolr.com)
